@@ -16,7 +16,7 @@ public final class ReglaCobro {
 	public static double valorACobrar(LocalDateTime fechaEntrada, LocalDateTime fechaSalida, String tipoVehiculo, int cilindraje) {
 		long totalHoras = calcularTotalHoras(fechaEntrada, fechaSalida);
 		long dias = calcularDias(totalHoras);
-		long horas = calcularHorasUltimoDia(totalHoras);
+		long horas = calcularHorasUltimoDia(totalHoras) + calcularTotalMilesimas(fechaEntrada, fechaSalida);
 		return totalACobrar(dias, horas, tipoVehiculo, cilindraje);
 	}
 
@@ -33,6 +33,10 @@ public final class ReglaCobro {
 	private static long calcularHorasUltimoDia(long totalHoras) {
 		long horasPasadas = calcularHorasExtra(totalHoras);
 		return horasPasadas < HORA_MAXIMA_PARA_COBRAR_POR_DIA ? horasPasadas : 0;
+	}
+	
+	private static long calcularTotalMilesimas(LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {
+		 return Duration.between(fechaEntrada, fechaSalida).toMillis() > 0 ? 1 : 0;
 	}
 
 	private static long calcularTotalHoras(LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {

@@ -23,9 +23,4 @@ public final class ValidadorArgumento {
 		if (!(valor.toString().equals(Constantes.CARRO) || valor.toString().equals(Constantes.MOTO)))
 			throw new ExcepcionTipoVehiculo(mensaje);
 	}
-	
-	public static void validarObligatorioValor(double valor, String mensaje) {
-		if(valor == 0d)
-			throw new ExcepcionValorObligatorio(mensaje);
-	}
 }
