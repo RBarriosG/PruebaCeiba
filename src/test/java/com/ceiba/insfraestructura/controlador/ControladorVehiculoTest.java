@@ -65,7 +65,7 @@ public class ControladorVehiculoTest extends BaseTest {
 	@Test
 	public void testListarVehiculosEnParqueadero() throws Exception {
 		// arrange
-		String placa = "AEF345";
+		String placa = "FEF345";
 		String tipo = "CARRO";
 		int cilindraje = 300;
 
@@ -83,7 +83,7 @@ public class ControladorVehiculoTest extends BaseTest {
 	@Test
 	public void testListarVehiculos() throws Exception {
 		// arrange
-		String placa = "AAF345";
+		String placa = "EAF345";
 		String tipo = "CARRO";
 		int cilindraje = 300;
 
