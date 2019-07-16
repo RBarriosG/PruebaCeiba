@@ -10,7 +10,7 @@ import com.ceiba.dominio.util.Constantes;
 
 public class VehiculosEnParqueaderoTestDataBuilder {
 
-	private static final Vehiculo VEHICULO = new VehiculoTestDataBuilder().build();
+	private static final Vehiculo VEHICULO_PRUEBA = new VehiculoTestDataBuilder().build();
 	private static final LocalDateTime FECHA_ENTRADA = LocalDateTime.of(2019, 7, 7, 8, 14);
 	private static final int CILINDRAJE = 600;
 	private static final String PLACA = "DFA31";
@@ -20,7 +20,7 @@ public class VehiculosEnParqueaderoTestDataBuilder {
 	private LocalDateTime fechaEntrada;
 
 	public VehiculosEnParqueaderoTestDataBuilder() {
-		this.vehiculo = VEHICULO;
+		this.vehiculo = VEHICULO_PRUEBA;
 		this.fechaEntrada = FECHA_ENTRADA;
 	}
 
@@ -38,9 +38,9 @@ public class VehiculosEnParqueaderoTestDataBuilder {
 		return new VehiculosEnParqueadero(this.vehiculo, this.fechaEntrada);
 	}
 
-	public static List<VehiculosEnParqueadero> crearRegistros(int tamanio_registro) {
+	public static List<VehiculosEnParqueadero> crearRegistros(int tamanioRegistro) {
 		List<VehiculosEnParqueadero> vehiculosEnParqueadero = new ArrayList<>();
-		for (int i = 0; i < tamanio_registro; i++) {
+		for (int i = 0; i < tamanioRegistro; i++) {
 			if (i % 2 == 0) {
 				vehiculosEnParqueadero.add(new VehiculosEnParqueadero(
 						new VehiculoTestDataBuilder().conTipo(Constantes.CARRO).conPlaca(PLACA+String.valueOf(i)).build(),

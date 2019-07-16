@@ -39,10 +39,10 @@ public final class ReglaCobro {
 
 	private static long calcularHorasUltimoDia(long totalHoras, LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {
 		long horasPasadas = calcularHorasExtra(totalHoras);
-		return horasPasadas < HORA_MAXIMA_PARA_COBRAR_POR_DIA ? horasPasadas + AgregarHoraSiHayMinutoDeDiferencia(fechaEntrada, fechaSalida) : CERO_HORAS;
+		return horasPasadas < HORA_MAXIMA_PARA_COBRAR_POR_DIA ? horasPasadas + agregarHoraSiHayMinutoDeDiferencia(fechaEntrada, fechaSalida) : CERO_HORAS;
 	}
 	
-	private static long AgregarHoraSiHayMinutoDeDiferencia(LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {
+	private static long agregarHoraSiHayMinutoDeDiferencia(LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {
 		 return Duration.between(fechaEntrada, fechaSalida).toMinutes() % MINUTO_EN_SEGUNDO > 0 ? UNA_HORA : CERO_HORAS;
 	}
 

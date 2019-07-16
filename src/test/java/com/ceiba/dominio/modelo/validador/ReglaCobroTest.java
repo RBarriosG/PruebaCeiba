@@ -31,7 +31,7 @@ public class ReglaCobroTest {
 	private static final double VALOR_ESPERADO_MOTO_UN_DIA_3_HORAS_CILINDRAJE_MAYOR_A_500 = 7500.0;
 	
 	@Test
-	public void ValorACobrarTipoCarroHorasNoMayorA9Test() {
+	public void valorACobrarTipoCarroHorasNoMayorA9Test() {
 		//Arrange - Act
 		double valorACobrar = ReglaCobro.valorACobrar(FECHA_ENTRADA, FECHA_SALIDA, Constantes.CARRO, CILINDRAJE);
 		//assert
@@ -39,7 +39,7 @@ public class ReglaCobroTest {
 	}
 	
 	@Test
-	public void ValorACobrarTipoCarroHoraIgual9Hasta24Test() {
+	public void valorACobrarTipoCarroHoraIgual9Hasta24Test() {
 		//Arrange - Act
 		double valorACobrar = ReglaCobro.valorACobrar(FECHA_ENTRADA, FECHA_SALIDA_1, Constantes.CARRO, CILINDRAJE);
 		//assert
@@ -47,7 +47,7 @@ public class ReglaCobroTest {
 	}
 	
 	@Test
-	public void ValorACobrarTipoCarroMayorAUnDiaTest() {
+	public void valorACobrarTipoCarroMayorAUnDiaTest() {
 		//Arrange - Act
 		double valorACobrar = ReglaCobro.valorACobrar(FECHA_ENTRADA, FECHA_SALIDA_2, Constantes.CARRO, CILINDRAJE);
 		//assert
@@ -55,7 +55,7 @@ public class ReglaCobroTest {
 	}
 	
 	@Test
-	public void ValorACobrarTipoMotoHorasNoMayorA9YCilindrajeMenorA500Test() {
+	public void valorACobrarTipoMotoHorasNoMayorA9YCilindrajeMenorA500Test() {
 		//Arrange - Act
 		double valorACobrar = ReglaCobro.valorACobrar(FECHA_ENTRADA, FECHA_SALIDA, Constantes.MOTO, CILINDRAJE);
 		//assert
@@ -63,7 +63,7 @@ public class ReglaCobroTest {
 	}
 	
 	@Test
-	public void ValorACobrarTipoMotoHorasNoMayorA9YCilindrajeMayorA500Test() {
+	public void valorACobrarTipoMotoHorasNoMayorA9YCilindrajeMayorA500Test() {
 		//Arrange - Act
 		double valorACobrar = ReglaCobro.valorACobrar(FECHA_ENTRADA, FECHA_SALIDA, Constantes.MOTO, CILINDRAJE_MAYOR_A_500);
 		//assert
@@ -71,7 +71,7 @@ public class ReglaCobroTest {
 	}
 	
 	@Test
-	public void ValorACobrarTipoMotoHorasEntre9Y24YCilindrajeMenorA500Test() {
+	public void valorACobrarTipoMotoHorasEntre9Y24YCilindrajeMenorA500Test() {
 		//Arrange - Act
 		double valorACobrar = ReglaCobro.valorACobrar(FECHA_ENTRADA, FECHA_SALIDA_1, Constantes.MOTO, CILINDRAJE);
 		//assert
@@ -79,7 +79,7 @@ public class ReglaCobroTest {
 	}
 	
 	@Test
-	public void ValorACobrarTipoMotoHorasEntre9Y24YCilindrajeMayorA500Test() {
+	public void valorACobrarTipoMotoHorasEntre9Y24YCilindrajeMayorA500Test() {
 		//Arrange - Act
 		double valorACobrar = ReglaCobro.valorACobrar(FECHA_ENTRADA, FECHA_SALIDA_1, Constantes.MOTO, CILINDRAJE_MAYOR_A_500);
 		//assert
@@ -87,7 +87,7 @@ public class ReglaCobroTest {
 	}
 
 	@Test
-	public void ValorACobrarTipoMotoMayoAUnDiaYCilindrajeMenorA500Test() {
+	public void valorACobrarTipoMotoMayoAUnDiaYCilindrajeMenorA500Test() {
 		//Arrange - Act
 		double valorACobrar = ReglaCobro.valorACobrar(FECHA_ENTRADA, FECHA_SALIDA_2, Constantes.MOTO, CILINDRAJE);
 		//assert
@@ -95,7 +95,7 @@ public class ReglaCobroTest {
 	}
 	
 	@Test
-	public void ValorACobrarTipoMotoMayoAUnDiaYCilindrajeMayorA500Test() {
+	public void valorACobrarTipoMotoMayoAUnDiaYCilindrajeMayorA500Test() {
 		//Arrange - Act
 		double valorACobrar = ReglaCobro.valorACobrar(FECHA_ENTRADA, FECHA_SALIDA_2, Constantes.MOTO, CILINDRAJE_MAYOR_A_500);
 		//assert

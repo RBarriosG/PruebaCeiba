@@ -10,8 +10,8 @@ public class HistorialTestDataBuilder {
 	
 	private static final LocalDateTime FECHA_ENTRADA = LocalDateTime.of(2019, 7, 7, 8, 14);
 	private static final LocalDateTime FECHA_SALIDA = LocalDateTime.of(2019, 7, 7, 18, 14);
-	private static final Vehiculo VEHICULO = new VehiculoTestDataBuilder().build();
-	private static final double VALOR = Constantes.VALOR_DIA_CARRO;
+	private static final Vehiculo VEHICULO_PRUEBA = new VehiculoTestDataBuilder().build();
+	private static final double VALOR_PRUEBA = Constantes.VALOR_DIA_CARRO;
 
 	private Vehiculo vehiculo;
 
@@ -22,10 +22,10 @@ public class HistorialTestDataBuilder {
 	private double valor;
 	
 	public HistorialTestDataBuilder() {
-		this.vehiculo = VEHICULO;
+		this.vehiculo = VEHICULO_PRUEBA;
 		this.fechaEntrada = FECHA_ENTRADA;
 		this.fechaSalida = FECHA_SALIDA;
-		this.valor = VALOR;
+		this.valor = VALOR_PRUEBA;
 	}
 	
 	public HistorialTestDataBuilder conVehiculo(Vehiculo vehiculo) {

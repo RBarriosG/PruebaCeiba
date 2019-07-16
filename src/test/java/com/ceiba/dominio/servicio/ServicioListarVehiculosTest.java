@@ -28,8 +28,8 @@ public class ServicioListarVehiculosTest {
 		assertEquals(TAMANIO_REGISTRO, listaDeVehiculos.size());
 	}
 
-	private List<Vehiculo> listaVehiculos(int tamanio_registro) {
-		return VehiculoTestDataBuilder.crearVehiculos(tamanio_registro);
+	private List<Vehiculo> listaVehiculos(int tamanioRegistro) {
+		return VehiculoTestDataBuilder.crearVehiculos(tamanioRegistro);
 	}
 
 }

@@ -43,9 +43,9 @@ public class VehiculoTestDataBuilder {
 		return new Vehiculo(this.placa, this.tipo, this.cilindraje);
 	}
 
-	public static List<Vehiculo> crearVehiculos(int tamanio_registro) {
+	public static List<Vehiculo> crearVehiculos(int tamanioRegistro) {
 		List<Vehiculo> vehiculos = new ArrayList<>();
-		for (int i = 0; i < tamanio_registro; i++) {
+		for (int i = 0; i < tamanioRegistro; i++) {
 			if (i % 2 == 0) {
 				vehiculos.add(new VehiculoTestDataBuilder().conTipo(Constantes.CARRO)
 						.conPlaca(PLACA_A + String.valueOf(i)).build());

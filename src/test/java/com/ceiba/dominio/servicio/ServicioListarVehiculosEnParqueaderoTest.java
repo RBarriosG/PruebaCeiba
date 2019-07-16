@@ -30,8 +30,8 @@ public class ServicioListarVehiculosEnParqueaderoTest {
 		assertEquals(TAMANIO_REGISTRO, listaDeVehiculosEnParqueadero.size());
 	}
 
-	private List<VehiculosEnParqueadero> listaVehiculosEnParqueadero(int tamanio_registro) {
-		return VehiculosEnParqueaderoTestDataBuilder.crearRegistros(tamanio_registro);
+	private List<VehiculosEnParqueadero> listaVehiculosEnParqueadero(int tamanioRegistro) {
+		return VehiculosEnParqueaderoTestDataBuilder.crearRegistros(tamanioRegistro);
 	}
 
 }
