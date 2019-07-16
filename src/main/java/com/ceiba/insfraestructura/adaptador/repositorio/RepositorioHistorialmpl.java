@@ -52,7 +52,7 @@ public class RepositorioHistorialmpl implements RepositorioHistorial {
 
 	@Override
 	public boolean existeVehiculoConPlaca(String placa) {
-		return repositorioHistorialJpa.obtenerHistorialPorPlaca(placa) != null ? true : false;
+		return repositorioHistorialJpa.obtenerHistorialPorPlaca(placa) != null;
 	}
 
 	@Override
