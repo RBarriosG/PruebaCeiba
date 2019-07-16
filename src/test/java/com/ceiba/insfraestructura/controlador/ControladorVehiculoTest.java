@@ -52,7 +52,8 @@ public class ControladorVehiculoTest extends BaseTest {
 	@Test
 	public void testSalidaVehiculo() throws Exception {
 		// arrange
-		ComandoVehiculo comandoVehiculo = new ComandoVehiculoTestDataBuilder().build();
+		String placa = "PLS123";
+		ComandoVehiculo comandoVehiculo = new ComandoVehiculoTestDataBuilder().conPlaca(placa).build();
 		String url = WEBAPI_SALIDA + "/" + comandoVehiculo.getPlaca();
 
 		mocMvc.perform(post(WEBAPI_INGRESAR).contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -95,7 +96,7 @@ public class ControladorVehiculoTest extends BaseTest {
 
 		// assert
 		mocMvc.perform(get(WEBAPI_VEHICULO).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
-				.andExpect(jsonPath("$", hasSize(1))).andExpect(jsonPath("$[0].placa", is(placa)));
+				.andExpect(jsonPath("$", hasSize(4))).andExpect(jsonPath("$[3].placa", is(placa)));
 	}
 	
 }

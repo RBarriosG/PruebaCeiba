@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ceiba.aplicacion.comando.ComandoVehiculo;
+import com.ceiba.aplicacion.comando.ComandoVehiculoEnParqueadero;
 import com.ceiba.aplicacion.comando.manejador.ManejadorIngresarVehiculo;
 import com.ceiba.aplicacion.consulta.manejador.ManejadorListarVehiculos;
 import com.ceiba.aplicacion.consulta.manejador.ManejadorListarVehiculosEnParqueadero;
 import com.ceiba.aplicacion.consulta.manejador.ManejadorSalidaVehiculo;
 import com.ceiba.dominio.modelo.Vehiculo;
-import com.ceiba.dominio.modelo.VehiculosEnParqueadero;
 
 @RestController
 public class ControladorVehiculo {
@@ -40,7 +40,7 @@ public class ControladorVehiculo {
 	
 	
 	@GetMapping("webapi/parqueos")
-	public List<VehiculosEnParqueadero> listarVehiculosEnParqueadero(){
+	public List<ComandoVehiculoEnParqueadero> listarVehiculosEnParqueadero(){
 		return this.manejadorListarVehiculosEnParqueadero.ejecutar();
 	}
 	

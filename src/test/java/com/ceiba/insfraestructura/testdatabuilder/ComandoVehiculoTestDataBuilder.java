@@ -11,7 +11,7 @@ public class ComandoVehiculoTestDataBuilder {
 	private int cilindraje;
 
 	public ComandoVehiculoTestDataBuilder() {
-		this.placa = "ZAS345";
+		this.placa = "ZAS3451";
 		this.tipo = "CARRO";
 		this.cilindraje = 0;
 	}
