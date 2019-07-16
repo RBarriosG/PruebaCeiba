@@ -25,26 +25,27 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class ControladorVehiculoTest extends BaseTest{
+public class ControladorVehiculoTest extends BaseTest {
 
 	@Autowired
-    private ObjectMapper objectMapper;
+	private ObjectMapper objectMapper;
 
-    @Autowired
-    private MockMvc mocMvc;
+	@Autowired
+	private MockMvc mocMvc;
+
+	private static final String WEBAPI_PARQUEDERO = "/webapi/parqueos";
+	private static final String WEBAPI_INGRESAR = WEBAPI_PARQUEDERO;
+	private static final String WEBAPI_SALIDA = WEBAPI_PARQUEDERO;
 	
-	private static final String API_PARQUEDERO = "/webapi/parqueos";
-	private static final String API_INGRESAR = API_PARQUEDERO;
-	private static final String API_SALIDA = API_PARQUEDERO;
-	
-	
+	private static final String WEBAPI_VEHICULO = "/webapi/vehiculos";
+
 	@Test
 	public void testIngresarVehiculo() throws Exception {
 		// arrange
 		ComandoVehiculo comandoVehiculo = new ComandoVehiculoTestDataBuilder().build();
 
 		// act - assert
-		mocMvc.perform(post(API_INGRESAR).contentType(MediaType.APPLICATION_JSON_UTF8)
+		mocMvc.perform(post(WEBAPI_INGRESAR).contentType(MediaType.APPLICATION_JSON_UTF8)
 				.content(objectMapper.writeValueAsString(comandoVehiculo))).andExpect(status().isCreated());
 	}
 
@@ -52,32 +53,49 @@ public class ControladorVehiculoTest extends BaseTest{
 	public void testSalidaVehiculo() throws Exception {
 		// arrange
 		ComandoVehiculo comandoVehiculo = new ComandoVehiculoTestDataBuilder().build();
-		String url = API_SALIDA + "/" + comandoVehiculo.getPlaca();
+		String url = WEBAPI_SALIDA + "/" + comandoVehiculo.getPlaca();
 
-		mocMvc.perform(post(API_INGRESAR).contentType(MediaType.APPLICATION_JSON_UTF8)
+		mocMvc.perform(post(WEBAPI_INGRESAR).contentType(MediaType.APPLICATION_JSON_UTF8)
 				.content(objectMapper.writeValueAsString(comandoVehiculo)));
 
 		// act - assert
 		mocMvc.perform(delete(url).contentType(MediaType.APPLICATION_JSON_UTF8)).andExpect(status().isOk());
 	}
-	
+
 	@Test
 	public void testListarVehiculosEnParqueadero() throws Exception {
 		// arrange
-		String placa = "MXT";
+		String placa = "AEF345";
 		String tipo = "CARRO";
-		
-		ComandoVehiculo comandoVehiculo = new ComandoVehiculoTestDataBuilder().conPlaca(placa).conTipo(tipo).build();
+		int cilindraje = 300;
 
-		mocMvc.perform(post(API_PARQUEDERO).contentType(MediaType.APPLICATION_JSON_UTF8)
-				.content(objectMapper.writeValueAsString(comandoVehiculo)));
-		
-		//assert
-    	mocMvc.perform(get(API_PARQUEDERO)
-    		      .contentType(MediaType.APPLICATION_JSON))
-    		      .andExpect(status().isOk())
-    		      .andExpect(jsonPath("$", hasSize(1)))
-    		      .andExpect(jsonPath("$[0].placa", is(placa)));
+		ComandoVehiculo comandoVehiculo = new ComandoVehiculoTestDataBuilder().conPlaca(placa).conTipo(tipo)
+				.conCilindraje(cilindraje).build();
+
+		mocMvc.perform(post(WEBAPI_PARQUEDERO).contentType(MediaType.APPLICATION_JSON_UTF8)
+				.content(objectMapper.writeValueAsString(comandoVehiculo)));	
+
+		// act - assert
+		mocMvc.perform(get(WEBAPI_PARQUEDERO).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
+				.andExpect(jsonPath("$", hasSize(1))).andExpect(jsonPath("$[0].placa", is(placa)));
+	}
+
+	@Test
+	public void testListarVehiculos() throws Exception {
+		// arrange
+		String placa = "AAF345";
+		String tipo = "CARRO";
+		int cilindraje = 300;
+
+		ComandoVehiculo comandoVehiculo = new ComandoVehiculoTestDataBuilder().conPlaca(placa).conTipo(tipo)
+				.conCilindraje(cilindraje).build();
+
+		mocMvc.perform(post(WEBAPI_PARQUEDERO).contentType(MediaType.APPLICATION_JSON_UTF8)
+				.content(objectMapper.writeValueAsString(comandoVehiculo)));	
+
+		// assert
+		mocMvc.perform(get(WEBAPI_VEHICULO).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
+				.andExpect(jsonPath("$", hasSize(1))).andExpect(jsonPath("$[0].placa", is(placa)));
 	}
 	
 }

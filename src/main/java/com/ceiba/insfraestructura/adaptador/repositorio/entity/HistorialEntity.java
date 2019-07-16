@@ -8,14 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Getter
-@Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "historial")
@@ -40,7 +36,13 @@ public class HistorialEntity {
 		this.vehiculoEntity = vehiculoEntity;
 		this.valor = valor;
 	}
+	
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+	
+	public void setFechaSalida(LocalDateTime fechaSalida) {
+		this.fechaSalida = fechaSalida;
+	}
 
-	
-	
 }
