@@ -34,34 +34,23 @@ public class ReglasCrearHistorial {
 	}
 
 	private boolean maximo20Carros(Vehiculo vehiculo) {
-		if (vehiculo.getTipo().equals(Constantes.CARRO)
-				&& repositorioHistorial.contarVehiculosPorTipo(vehiculo.getTipo()) >= 20)
-			return true;
-
-		return false;
+		return vehiculo.getTipo().equals(Constantes.CARRO)
+				&& repositorioHistorial.contarVehiculosPorTipo(vehiculo.getTipo()) >= 20;
 	}
 
 	private boolean maximo10Motos(Vehiculo vehiculo) {
-		if (vehiculo.getTipo().equals(Constantes.MOTO)
-				&& repositorioHistorial.contarVehiculosPorTipo(vehiculo.getTipo()) >= 10)
-			return true;
-
-		return false;
+		return vehiculo.getTipo().equals(Constantes.MOTO)
+				&& repositorioHistorial.contarVehiculosPorTipo(vehiculo.getTipo()) >= 10;
 	}
 
 	public boolean placaComienzaConLetraAYEsDiaHabil(Vehiculo vehiculo, LocalDateTime fechaEntrada) {
 		if (vehiculo.getPlaca().startsWith(Constantes.LETRA_INICIAL_PLACA_A))
-			if (esDiaHabil(fechaEntrada))
-				return false;
-			else
-				return true;
+			return !esDiaHabil(fechaEntrada);
 		return false;
 	}
 
 	private boolean esDiaHabil(LocalDateTime fechaEntrada) {
-		if (fechaEntrada.getDayOfWeek() == DayOfWeek.SUNDAY || fechaEntrada.getDayOfWeek() == DayOfWeek.MONDAY)
-			return true;
-		return false;
+		return fechaEntrada.getDayOfWeek() == DayOfWeek.SUNDAY || fechaEntrada.getDayOfWeek() == DayOfWeek.MONDAY;
 	}
 
 }
